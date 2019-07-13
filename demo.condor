@@ -1,0 +1,12 @@
+##
+# Test Submit File
+##
+# Use: condor_submit testTask.condor
+should_transfer_files = Yes
+when_to_transfer_output = ON_EXIT_OR_EVICT
+Executable = /bin/ls
+Universe   = vanilla
+Output     = hostOut.$(Process)
+Log        = hostLog
+Error      = hostErr.$(Process)
+Queue
