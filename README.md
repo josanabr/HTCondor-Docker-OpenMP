@@ -169,12 +169,11 @@ Ejecutar ese comando 2 veces más para obtener una tabla similar a esta:
 
 | Iteración  | Tiempo | T. User   |
 |------------|--------|-----------|
-|     1      |  --24.53-- |   --48.53--   |
+|     1      |  24.53 |   48.53   |
 |     2      |  23.58 |   46.57   |
-|     3      |  --23.47-- |   --46.31--   |
+|     3      |  23.47 |   46.31   |
 |     4      |  23.53 |   46.42   |
 |     5      |  23.85 |   47.29   |
-|------------|--------|-----------|
 |    Avg.    |  23.65 |   46.76   |
 
 Para sacar el **promedio** se eliminan los valores extremos (más alto (48.53) y el más bajo (46.31)).
