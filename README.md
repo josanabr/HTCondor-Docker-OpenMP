@@ -159,6 +159,9 @@ docker build -t josanabr/demo_openmp .
 
 Las pruebas, como se indicó anteriormente, son de 4 tipos. 
 Comenzaremos con la ejecución del binario sobre la máquina virtual. 
+
+### Sobre máquina virtual
+
 Para ello, ubicado en el directorio `/vagrant/src`, ejecute lo siguiente:
 
 ```
@@ -177,6 +180,28 @@ Ejecutar ese comando 2 veces más para obtener una tabla similar a esta:
 |    Avg.    |  23.65 |   46.76   |
 
 Para sacar el **promedio** se eliminan los valores extremos (más alto (48.53) y el más bajo (46.31)).
+
+### Docker sobre máquina virtual
+
+Para esta ejecución se asume que el usuario se encuentra en la máquina virtual en el directorio `/vagrant/src`.
+Estando en este directorio y asumiendo que el contenedor fue creado somo se indicó anteriormene, se lleva a cabo la siguiene ejecucicón:
+
+```
+docker run --rm josanabr/demo_openmp
+```
+
+Para esta ocasión 
+
+| Iteración  | Tiempo |
+|------------|--------|
+|     1      |   27   |
+|     2      |   25   |
+|     3      |   24   |
+|     4      |   23   |
+|     5      |   24   |
+|    Avg.    |   24.3 |
+
+Para sacar el **promedio** se eliminan los valores extremos (más alto (27) y el más bajo (23)).
 
 ## Autores
 
