@@ -160,7 +160,7 @@ docker build -t josanabr/demo_openmp .
 Las pruebas, como se indicó anteriormente, son de 4 tipos. 
 Comenzaremos con la ejecución del binario sobre la máquina virtual. 
 
-### Sobre máquina virtual
+### OpenMP sobre máquina virtual
 
 Para ello, ubicado en el directorio `/vagrant/src`, ejecute lo siguiente:
 
@@ -181,7 +181,7 @@ Ejecutar ese comando 2 veces más para obtener una tabla similar a esta:
 
 Para sacar el **promedio** se eliminan los valores extremos (más alto (48.53) y el más bajo (46.31)).
 
-### Docker sobre máquina virtual
+### Tarea de OpenMP en Docker sobre máquina virtual
 
 Para esta ejecución se asume que el usuario se encuentra en la máquina virtual en el directorio `/vagrant/src`.
 Estando en este directorio y asumiendo que el contenedor fue creado somo se indicó anteriormene, se lleva a cabo la siguiene ejecucicón:
@@ -202,6 +202,111 @@ Para esta ocasión
 |    Avg.    |   24.3 |
 
 Para sacar el **promedio** se eliminan los valores extremos (más alto (27) y el más bajo (23)).
+
+### OpenMP en Docker como tarea de HTCondor  sobre máquina virtual
+
+En este caso se define una tarea basada en Docker para HTCondor.
+
+```
+universe                = docker
+docker_image            = josanabr/demo_openmp
+arguments		= time_fibo.sh
+transfer_executable     = true
+transfer_input_files	= time_fibo.sh
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+output                  = out.$(Cluster).$(Process)
+error                   = err.$(Cluster).$(Process)
+log                     = log.$(Cluster)
+request_cpus		= 1
+queue 1
+```
+
+Observe que en este caso el `ad` `request_cpus` tiene un valor de 1. 
+La razón es porque nuestro sistema HTCondor está definido con slots estáticos y donde cada slot tiene una sola CPU.
+Aquí la salida de la ejecución del comando `condor_status`
+
+```
+Name               OpSys      Arch   State     Activity LoadAv Mem   ActvtyTime
+
+slot1@htcondor.loc LINUX      X86_64 Unclaimed Idle      0.040  999  0+00:14:47
+slot2@htcondor.loc LINUX      X86_64 Unclaimed Idle      0.000  999  0+00:15:05
+                     Total Owner Claimed Unclaimed Matched Preempting Backfill
+
+        X86_64/LINUX     2     0       0         2       0          0        0
+
+               Total     2     0       0         2       0          0        0
+```
+
+Al lanzar la tarea, con el comando `condor_submit docker.condor`, estos fueron los valores observados.
+
+| Iteración  | Tiempo |
+|------------|--------|
+|     1      |   46   |
+|     2      |   45   |
+|     3      |   46   |
+|     4      |   46   |
+|     5      |   46   |
+|    Avg.    |   46   |
+
+Para sacar el **promedio** se eliminan los valores extremos (más alto (46) y el más bajo (45)).
+
+Ya que la tarea espera usar varios núcleos se hace una modificación en el archivo definición de la tarea de HTCondor.
+Se cambia `request_cpus` de `1` a `2`.
+Cuando se lanza la tarea, `condor_submit docker.condor`, la tarea no logra ejecutarse pues no hay ningún slot en la máquina de procesamiento que tenga dos núcleos.
+
+### OpenMP en Docker como tarea de HTCondor  sobre máquina virtual - Configuración de HTCondor con slots dinámicos
+
+Una solución a la situación anterior es implementar slots dinámicos en el despliegue existente de HTCondor.
+En el caso particular de este escenario de pruebas es necesario, editar el archivo `/etc/condor/condor_config.local` y adicionar las siguientes líneas:
+
+```
+# Slots Configuration / Configuracion de Slots
+# Owner Slot / Slot para el propietario
+# Slot resources / Recursos del Slot
+SLOT_TYPE_1 = cpu=100%, ram=100%
+## Create Slot / Crear Slot
+NUM_SLOTS_TYPE_1 = 1
+## Never run jobs in this slot / Nunca ejecutar tareas en este slot
+SLOT_TYPE_1_START= True
+```
+
+Guardar los cambios y reiniciar el servicio de `HTCondor`
+
+```
+sudo service condor restart
+```
+
+Al ejecutar `condor_status` la salida debería ser algo similar a esto:
+
+```
+Name               OpSys      Arch   State     Activity LoadAv Mem   ActvtyTime
+
+htcondor.local     LINUX      X86_64 Unclaimed Benchmar  0.030 1999  0+00:00:04
+                     Total Owner Claimed Unclaimed Matched Preempting Backfill
+
+        X86_64/LINUX     1     0       0         1       0          0        0
+
+               Total     1     0       0         1       0          0        0
+```
+
+En este caso ya no se tienen varios slots sino solo uno.
+
+Se vuelve a lanzar la tarea descrita en el punto anterior, `condor_submit docker.condor`, y en este caso la tarea si termina su ejecución. 
+Se revisa el contenido del archivo `out.9.0` y se obtiene un valor de 24 segundos.
+Se lanza la ejecución 4 veces más y se obtienen los siguientes resultados:
+
+| Iteración  | Tiempo |
+|------------|--------|
+|     1      |   24   |
+|     2      |   24   |
+|     3      |   23   |
+|     4      |   24   |
+|     5      |   24   |
+|    Avg.    |   24   |
+
+Para sacar el **promedio** se eliminan los valores extremos (más alto (24) y el más bajo (23)).
+
 
 ## Autores
 

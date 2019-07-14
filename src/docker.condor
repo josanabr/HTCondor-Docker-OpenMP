@@ -1,0 +1,12 @@
+universe                = docker
+docker_image            = josanabr/demo_openmp
+arguments		= time_fibo.sh
+transfer_executable     = true
+transfer_input_files	= time_fibo.sh
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+output                  = out.$(Cluster).$(Process)
+error                   = err.$(Cluster).$(Process)
+log                     = log.$(Cluster)
+request_cpus		= 2
+queue 1
