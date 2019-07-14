@@ -307,6 +307,15 @@ Se lanza la ejecución 4 veces más y se obtienen los siguientes resultados:
 
 Para sacar el **promedio** se eliminan los valores extremos (más alto (24) y el más bajo (23)).
 
+# Conclusiones
+
+Al observar los resultados se puede afirmar lo siguiente:
+
+* El *overhead* impuesto por Docker y HTCondor en la ejecución efectiva de la aplicación cuando se compara con la versión nativa prácticamente no se afecta.
+* Cuando se usa HTCondor con __slots estáticos__ el rendimiento de las tareas basadas en hilos se pueden afectar dramáticamente pues en este escenario cada slot tiene un solo núcleo lo que evita el explotar el paralelismo de los procesadores *multicore*.
+* La configuración de __slots dinámicos__ permite crear espacios de ejecución que responden a las necesidades particulares de la definición de la tarea del usuario.
+* Se deben hacer pruebas con otro tipo de aplicaciones más intensivas en memoria RAM y en operacions de E/S.
+
 
 ## Autores
 
