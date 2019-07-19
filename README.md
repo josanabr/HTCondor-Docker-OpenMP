@@ -36,9 +36,9 @@ vagrant up
 
 Una vez terminada la ejecución del comando anterior usted tendrá un sistema Linux con Docker y HTCondor.
 
-## Validando Docker y HTCondor
+## Validando la instalación de Docker y HTCondor
 
-La máquina virtual desplegada instala Docker y HTCondor.
+La máquina virtual desplegada tiene instalados Docker y HTCondor.
 A continuación se describe como validar que ha sido correcta la instalación.
 
 ### Verificando instalación de Docker
