@@ -1,6 +1,9 @@
 # HTCondor - All in one
 
-En este repositorio se encuentran los archivos necesarios para hacer el despliegue de Docker + HTCondor (All-in-one). 
+En este repositorio se encuentran los archivos necesarios para hacer el despliegue de Docker + HTCondor (*All-in-one*). 
+La razón para desarrollar este ambiente *all-in-one* es porque muchas veces se presentan escenarios donde se debe ejecutar algún tipo de contextos de ejecución que requieren una maquinaria de software compleja como lo son Docker y HTCondor.
+Este repositorio simplifica el como materializar este entorno de ejecución.
+
 En una máquina virtual, desplegada a través de [Vagrant](https://vagrantup.com), se instalará [Docker](https://www.docker.com) y [HTCondor](https://research.cs.wisc.edu/htcondor/). 
 Al final del proceso se tendrá un sistema funcional con estas dos herramientas usadas en entornos de HTC (*Hight Throughput Computing*).
 
