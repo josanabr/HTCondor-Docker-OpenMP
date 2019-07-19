@@ -1,23 +1,37 @@
 # HTCondor - All in one
 
 En este repositorio se encuentran los archivos necesarios para hacer el despliegue de Docker + HTCondor (All-in-one). 
-En una máquina virtual se instalará [Docker](https://www.docker.com) y [HTCondor](https://research.cs.wisc.edu/htcondor/) y se tendrá un sistema funcional con estas dos herramientas usadas en entornos de HTC (*Hight Throughput Computing*).
+En una máquina virtual, desplegada a través de [Vagrant](https://vagrantup.com), se instalará [Docker](https://www.docker.com) y [HTCondor](https://research.cs.wisc.edu/htcondor/). 
+Al final del proceso se tendrá un sistema funcional con estas dos herramientas usadas en entornos de HTC (*Hight Throughput Computing*).
 
 ## Requerimientos
 
-Instalar la herramienta [vagrant](https://vagrantup.com).
-Durante el desarrollo de los scripts en este repositorio se usó la versión 2.2.5 de Vagrant.
+Para llevar a cabo el proceso de despliegue es necesario instalar [Vagrant](https://www.vagrantup.com/downloads.html).
+Una vez instalada la herramienta se hace necesario descargar el [box de Vagrant](https://www.vagrantup.com/docs/boxes.html) que se usó para hacer este despliegue.
+En una terminal ejecutar:
+
+```
+vagrant box add ubuntu/xenial64
+```
+
+Estos scripts se probaron en el siguiente entorno:
+
+* macOS 10.14.5
+* VirtualBox 5.2.30
+* Vagrant versión 2.2.5
 
 ---
 
 ## Pasos para el despliegue Docker + HTCondor (All-In-One)
 
-Asumiendo que se ha instalado `vagrant` y desde una terminal, ubíquese en el directorio donde se encuentren los archivos listados en este directorio de este repositorio.
-Una vez en el directorio ejecutar los siguientes pasos:
+Asumiendo que se ha instalado `vagrant` y desde una terminal, ubíquese en el directorio donde se encuentren los archivos de este repositorio.
+Una vez en el directorio ejecutar:
 
 ```
 vagrant up
 ```
+
+Una vez terminada la ejecución del comando anterior usted tendrá un sistema Linux con Docker y HTCondor.
 
 ## Validando Docker y HTCondor
 
