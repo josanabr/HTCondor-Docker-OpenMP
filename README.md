@@ -1,16 +1,17 @@
 # HTCondor - All in one
 
-En este repositorio se encuentran los archivos necesarios para hacer el despliegue de Docker + HTCondor (*All-in-one*). 
+En este repositorio se encuentran los archivos necesarios para hacer el despliegue de Docker + HTCondor (*All-in-one*) y Singularity. 
 La razón para desarrollar este ambiente *all-in-one* es porque muchas veces se presentan situaciones donde se debe ejecutar algún tipo de contextos de ejecución que requieren una maquinaria de software compleja como lo son Docker y HTCondor.
 Este repositorio simplifica el como materializar este entorno de ejecución.
 
 Al llevar a cabo los pasos descritos aquí usted tendrá una máquina virtual, desplegada a través de [Vagrant](https://vagrantup.com), y en la cual se instalará [Docker](https://www.docker.com) y [HTCondor](https://research.cs.wisc.edu/htcondor/). 
-Al final del proceso se tendrá un sistema funcional con estas dos herramientas usadas en entornos de HTC (*Hight Throughput Computing*).
+Se ha adicionado recientemente la herramienta para contenedores llamada [Singularity](https://singularity.lbl.gov/).
+Al final del proceso se tendrá un sistema funcional con estas herramientas usadas en entornos de HTC (*Hight Throughput Computing*).
 
 ## Requerimientos
 
-Para llevar a cabo el proceso de despliegue es necesario instalar [Vagrant](https://www.vagrantup.com/downloads.html).
-Una vez instalada la herramienta se hace necesario descargar el [box de Vagrant](https://www.vagrantup.com/docs/boxes.html) que se usó para hacer este despliegue.
+Para llevar a cabo el proceso de despliegue es necesario instalar [VirtualBox](https://www.virtualbox.org/wiki/Downloads) y [Vagrant](https://www.vagrantup.com/downloads.html).
+Una vez instaladas estas herramientas se hace necesario descargar el [box de Vagrant](https://www.vagrantup.com/docs/boxes.html) que se usó para hacer este despliegue.
 En una terminal ejecutar:
 
 ```
@@ -25,7 +26,7 @@ Estos scripts se probaron en el siguiente entorno:
 
 ---
 
-## Pasos para el despliegue Docker + HTCondor (All-In-One)
+## Pasos para el despliegue Docker + HTCondor (All-In-One) y Singularity
 
 Asumiendo que se ha instalado `vagrant` y desde una terminal, ubíquese en el directorio donde se encuentren los archivos de este repositorio.
 Una vez en el directorio ejecutar:
@@ -103,6 +104,14 @@ Debería aparecer:
 _condor_stderr
 _condor_stdout
 condor_exec.exe
+```
+
+### Validando la instalación de Singularity
+
+Desde una terminal ejecutar el siguiente comando:
+
+```
+singularity run library://sylabsed/examples/lolcow:latest
 ```
 
 ### Validando Docker en HTCondor
