@@ -1,0 +1,18 @@
+# Example 02
+# Contexto de ejecucion de la tarea
+Universe   = vanilla
+# Programa a ser ejecutado
+Executable = /bin/ls
+# Archivos donde quedaran registrados archivos por defecto de procesos en
+# Unix
+Log        = Ex02_Log.txt
+Output     = Ex02_Out_$(Cluster).$(Process).txt
+Error      = Ex02_Err_$(Cluster).$(Process).txt
+# Palabra clave que determina la terminacion de la definicion de un tarea
+Queue 
+Executable = /bin/cat
+# Archivos donde quedaran registrados archivos por defecto de procesos en
+# Unix
+Input	   = ex02.condor
+# Palabra clave que determina la terminacion de la definicion de un tarea
+Queue 

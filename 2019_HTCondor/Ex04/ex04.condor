@@ -1,0 +1,15 @@
+# Example 04
+# Ex04: Ejecutar sleep en el nodo, mostrar:
+# fecha, segundos de espera, nombre equipo, usuario y ruta
+##
+# Uso: condor_submit ex04.condor
+Universe   = vanilla
+
+Executable = test.bash
+Arguments  = 1 ex04.condor
+
+Log        = Ex04_Log.txt
+Output     = Ex04_Out_$(Cluster).$(Process).txt
+Error      = Ex04_Err_$(Cluster).$(Process).txt
+
+Queue 

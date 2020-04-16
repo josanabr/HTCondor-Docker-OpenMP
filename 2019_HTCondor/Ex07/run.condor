@@ -1,0 +1,10 @@
+universe                = docker
+
+docker_image            = josanabr/pystaticcovid:19
+
+log                     = run_Log_$(Cluster).txt
+
+output                  = run_Out_$(Cluster).$(Process).txt
+error                   = run_Err_$(Cluster).$(Process).txt
+
+queue 

@@ -1,0 +1,12 @@
+Ex03_Err_16.0.txt
+Ex03_Err_17.0.txt
+Ex03_Err_18.0.txt
+Ex03_Err_18.1.txt
+Ex03_Log.txt
+Ex03_Out_16.0.txt
+Ex03_Out_17.0.txt
+Ex03_Out_18.0.txt
+Ex03_Out_18.1.txt
+ex01.condor
+ex02.condor
+ex03.condor

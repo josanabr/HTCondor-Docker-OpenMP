@@ -1,0 +1,12 @@
+# Example 05
+Universe   = vanilla
+
+Executable = /usr/bin/docker
+transfer_input_files = Dockerfile,coronavirusco.json,fromJSON2CSV.py
+Arguments  = build -t josanabr/pystaticcovid:19 .
+
+Log        = Ex05_Log.txt
+Output     = Ex05_Out_$(Cluster).$(Process).txt
+Error      = Ex05_Err_$(Cluster).$(Process).txt
+
+Queue 

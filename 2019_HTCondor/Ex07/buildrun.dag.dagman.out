@@ -1,0 +1,71 @@
+04/16/20 22:11:00 ******************************************************
+04/16/20 22:11:00 ** condor_scheduniv_exec.34.0 (CONDOR_DAGMAN) STARTING UP
+04/16/20 22:11:00 ** /usr/bin/condor_dagman
+04/16/20 22:11:00 ** SubsystemInfo: name=DAGMAN type=DAGMAN(10) class=DAEMON(1)
+04/16/20 22:11:00 ** Configuration: subsystem:DAGMAN local:<NONE> class:DAEMON
+04/16/20 22:11:00 ** $CondorVersion: 8.4.2 Feb 22 2016 BuildID: Debian-8.4.2~dfsg.1-1build1 Debian-8.4.2~dfsg.1-1build1 $
+04/16/20 22:11:00 ** $CondorPlatform: X86_64-Ubuntu_ $
+04/16/20 22:11:00 ** PID = 26183
+04/16/20 22:11:00 ** Log last touched time unavailable (No such file or directory)
+04/16/20 22:11:00 ******************************************************
+04/16/20 22:11:00 Using config source: /etc/condor/condor_config
+04/16/20 22:11:00 Using local config sources: 
+04/16/20 22:11:00    /etc/condor/condor_config.local
+04/16/20 22:11:00 config Macros = 72, Sorted = 72, StringBytes = 1910, TablesBytes = 2640
+04/16/20 22:11:00 CLASSAD_CACHING is ENABLED
+04/16/20 22:11:00 Daemon Log is logging: D_ALWAYS D_ERROR
+04/16/20 22:11:00 DaemonCore: No command port requested.
+04/16/20 22:11:00 DAGMAN_USE_STRICT setting: 1
+04/16/20 22:11:00 DAGMAN_VERBOSITY setting: 3
+04/16/20 22:11:00 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+04/16/20 22:11:00 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+04/16/20 22:11:00 DAGMAN_SUBMIT_DELAY setting: 0
+04/16/20 22:11:00 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+04/16/20 22:11:00 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+04/16/20 22:11:00 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 5
+04/16/20 22:11:00 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+04/16/20 22:11:00 DAGMAN_DEFAULT_PRIORITY setting: 0
+04/16/20 22:11:00 DAGMAN_SUPPRESS_NOTIFICATION setting: True
+04/16/20 22:11:00 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+04/16/20 22:11:00 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+04/16/20 22:11:00 DAGMAN_RETRY_NODE_FIRST setting: False
+04/16/20 22:11:00 DAGMAN_MAX_JOBS_IDLE setting: 1000
+04/16/20 22:11:00 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+04/16/20 22:11:00 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+04/16/20 22:11:00 DAGMAN_MAX_POST_SCRIPTS setting: 20
+04/16/20 22:11:00 DAGMAN_ALLOW_LOG_ERROR setting: False
+04/16/20 22:11:00 DAGMAN_MUNGE_NODE_NAMES setting: True
+04/16/20 22:11:00 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+04/16/20 22:11:00 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+04/16/20 22:11:00 DAGMAN_ALWAYS_RUN_POST setting: True
+04/16/20 22:11:00 DAGMAN_ABORT_DUPLICATES setting: True
+04/16/20 22:11:00 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+04/16/20 22:11:00 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+04/16/20 22:11:00 DAGMAN_AUTO_RESCUE setting: True
+04/16/20 22:11:00 DAGMAN_MAX_RESCUE_NUM setting: 100
+04/16/20 22:11:00 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+04/16/20 22:11:00 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+04/16/20 22:11:00 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+04/16/20 22:11:00 DAGMAN_MAX_JOB_HOLDS setting: 100
+04/16/20 22:11:00 DAGMAN_HOLD_CLAIM_TIME setting: 20
+04/16/20 22:11:00 ALL_DEBUG setting: 
+04/16/20 22:11:00 DAGMAN_DEBUG setting: 
+04/16/20 22:11:00 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+04/16/20 22:11:00 argv[0] == "condor_scheduniv_exec.34.0"
+04/16/20 22:11:00 argv[1] == "-Lockfile"
+04/16/20 22:11:00 argv[2] == "buildrun.dag.lock"
+04/16/20 22:11:00 argv[3] == "-AutoRescue"
+04/16/20 22:11:00 argv[4] == "1"
+04/16/20 22:11:00 argv[5] == "-DoRescueFrom"
+04/16/20 22:11:00 argv[6] == "0"
+04/16/20 22:11:00 argv[7] == "-Dag"
+04/16/20 22:11:00 argv[8] == "buildrun.dag"
+04/16/20 22:11:00 argv[9] == "-Suppress_notification"
+04/16/20 22:11:00 argv[10] == "-CsdVersion"
+04/16/20 22:11:00 argv[11] == "$CondorVersion: 8.4.2 Feb 22 2016 BuildID: Debian-8.4.2~dfsg.1-1build1 Debian-8.4.2~dfsg.1-1build1 $"
+04/16/20 22:11:00 argv[12] == "-Dagman"
+04/16/20 22:11:00 argv[13] == "/usr/bin/condor_dagman"
+04/16/20 22:11:00 Warning: failed to get attribute DAGNodeName
+04/16/20 22:11:00 ERROR: log file /vagrant/2019_HTCondor/Ex07/./buildrun.dag.nodes.log is on NFS.
+04/16/20 22:11:00 Error: log file /vagrant/2019_HTCondor/Ex07/./buildrun.dag.nodes.log on NFS
+04/16/20 22:11:00 **** condor_scheduniv_exec.34.0 (condor_DAGMAN) pid 26183 EXITING WITH STATUS 1

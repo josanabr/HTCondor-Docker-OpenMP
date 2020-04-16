@@ -1,0 +1,24 @@
+universe                = docker
+should_transfer_files   = YES
+transfer_input_files    = nums.csv
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+docker_image            = r-base
+executable              = Rscript
+arguments               = in$(Process).r
+
+log                     = RDock_Log$(Cluster).txt
+
+input                   = in$(Process).r
+output                  = RDock_Out$(Cluster)-$(Process).txt
+error                   = RDock_Err$(Cluster)-$(Process).txt
+
+# Solicitar 2 core y 512MB RAM
+request_cpus   = 2
+request_memory = 512M
+
+# Solo ejecutarse en cloud.univalle.edu.co
+#Requirements = UidDomain == "cloud.univalle.edu.co"
+
+# Procesar los 4 archivos ".r"
+queue 4

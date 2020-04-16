@@ -1,0 +1,12 @@
+# Example 01
+# Contexto de ejecucion de la tarea
+Universe   = vanilla
+# Programa a ser ejecutado
+Executable = /bin/ls
+# Archivos donde quedaran registrados archivos por defecto de procesos en
+# Unix
+Log        = Ex01_Log.txt
+Output     = Ex01_Out_$(Cluster).$(Process).txt
+Error      = Ex01_Err_$(Cluster).$(Process).txt
+# Palabra clave que determina la terminacion de la definicion de un tarea
+Queue 
